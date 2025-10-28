@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title"></title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background-color: #e6f3ff;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to right, #66b2ff, #99d6ff);
+      color: white;
+    }
+
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about, .courses, .contact {
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    .about h2, .courses h2, .contact h2 {
+      color: #007bff;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #444;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Current Test Series */
+    .test-series {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 700px;
+      width: 90%;
+      margin: 30px auto;
+      text-align: left;
+    }
+
+    .test-series h3 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    .test-series p {
+      margin: 6px 0;
+      font-size: 1rem;
+    }
+
+    .test-series a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .test-series a:hover {
+      text-decoration: underline;
+    }
+
+    /* Coming soon card */
+    .coming-soon {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 400px;
+      margin: 20px auto;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .coming-soon:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .coming-soon h3 {
+      color: #007bff;
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .contact button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="companyNameHeading"></h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#courses">Tests</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Empowering Students Through Technology</h2>
+    <p>Learn, Grow, and Succeed with our platform – the future of digital education.</p>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      We are an innovative EdTech company dedicated to transforming education through technology.
+      Our mission is to make high-quality learning accessible to every student, everywhere.
+      We offer engaging test series, expert mentorship, and performance analytics to help
+      learners achieve their academic goals with confidence.
+    </p>
+  </section>
+
+  <section id="courses" class="courses">
+    <h2>Current Test Series</h2>
+
+    <div class="test-series">
+      <h3 id="testName">Test Series Name Here</h3>
+      <p><strong>Start Date:</strong> <span id="startDate">DD-MM-YYYY</span></p>
+      <p><strong>End Date:</strong> <span id="endDate">DD-MM-YYYY</span></p>
+      <p><strong>Registration:</strong> <a href="#" id="regLink" target="_blank">Register Here</a></p>
+    </div>
+
+    <div class="coming-soon">
+      <h3>More Test Series Coming Soon</h3>
+      <p>We’re working on more exciting test series and advanced learning modules. Stay tuned!</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Your Message" rows="4"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <span id="footerCompanyName"></span>. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // 🌐 Company name variable
+    const companyName = "Astroterium"; // <--- change this to your company name
+
+    // 🧾 Current test series details
+    const testSeries = {
+      name: "SportsCraze2025",
+      registrationLink: "https://unstop.com/", // <--- replace with your link
+      startDate: "28 Oct 2025",
+      endDate: "10 Nov 2025"
+    };
+
+    // Set dynamic content
+    document.getElementById("companyNameHeading").textContent = companyName;
+    document.getElementById("footerCompanyName").textContent = companyName;
+    document.getElementById("page-title").textContent = companyName + " - Empowering Learning";
+
+    document.getElementById("testName").textContent = testSeries.name;
+    document.getElementById("startDate").textContent = testSeries.startDate;
+    document.getElementById("endDate").textContent = testSeries.endDate;
+    document.getElementById("regLink").href = testSeries.registrationLink;
+
+    // ✉️ Contact form
+    const contactForm = document.getElementById("contactForm");
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      
+      const email = "astroterium.official@gmail.com"; // <-- put your email here
+      const subject = `Contact Form Message from ${document.getElementById("name").value}`;
+      const body = document.getElementById("message").value + "%0D%0A%0D%0AFrom: " + document.getElementById("email").value;
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+      alert("Opening your mail app to send the message!");
+    });
+
+    // 🔄 Fade-in animations on scroll
+    const sections = document.querySelectorAll("section");
+    const revealOnScroll = () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          section.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>
